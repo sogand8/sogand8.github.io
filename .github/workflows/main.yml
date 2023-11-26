@@ -17,11 +17,11 @@ jobs:
     
     # publishes Blazor project to the release-folder
     - name: Publish with dotnet
-      run: dotnet publish ./PersonalWebsite/PersonalWebsite.csproj --configuration Release --output build
+      run: dotnet publish ./PersonalWebsite/PersonalWebsite.csproj --configuration -c Release -o release --nologo
 
     # changes the base-tag in index.html from '/' to 'PersonalWebsite' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to PersonalWebsite
-      run: sed -i 's/<base href="\/" \/>/<base href="\/PersonalWebsite\/" \/>/g' index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/PersonalWebsite\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
