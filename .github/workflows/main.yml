@@ -20,8 +20,8 @@ jobs:
       run: dotnet publish ./PersonalWebsite/PersonalWebsite.csproj -c Release -o release --nologo
 
     # changes the base-tag in index.html from '/' to 'PersonalWebsite' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to kamyab7.github.io
-      run: sed -i 's/<base href="\/" \/>/<base href="\/kamyab7.github.io\/" \/>/g' release/wwwroot/index.html
+    # - name: Change base-tag in index.html from / to kamyab7.github.io
+    #  run: sed -i 's/<base href="\/" \/>/<base href="\/kamyab7.github.io\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: Copy index.html to 404.html
